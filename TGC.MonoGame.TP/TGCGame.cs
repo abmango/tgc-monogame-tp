@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using TGC.MonoGame.TP.Environment;
 using TGC.MonoGame.TP.Geometries;
+using TGC.MonoGame.TP.Camera;
 
 namespace TGC.MonoGame.TP
 {
@@ -49,10 +50,20 @@ namespace TGC.MonoGame.TP
         private Matrix View { get; set; }
         private Matrix Projection { get; set; }
 
+        // Camera to draw the scene
+        private FreeCamera Camera { get; set; }
+
         private Terrain Terrain { get; set; }
         private Terrain Terrain2 { get; set; }
 
+        // -------------------------------------
+        private Terrain Terrain3 { get; set; }
+
+
+        // -------------------------------------
+
         private float SquareSize = 50f;
+
 
         /// <summary>
         ///     Se llama una sola vez, al principio cuando se ejecuta el ejemplo.
@@ -60,6 +71,12 @@ namespace TGC.MonoGame.TP
         /// </summary>
         protected override void Initialize()
         {
+
+            var size = GraphicsDevice.Viewport.Bounds.Size;
+            size.X /= 2;
+            size.Y /= 2;
+            Camera = new FreeCamera(GraphicsDevice.Viewport.AspectRatio, Vector3.UnitZ * 150f, size);
+
             // La logica de inicializacion que no depende del contenido se recomienda poner en este metodo.
 
             // Apago el backface culling.
@@ -110,8 +127,13 @@ namespace TGC.MonoGame.TP
 
             //var floorTexture = Content.Load<Texture2D>(ContentFolderTextures + "floor/tiling-base");
             
-            Terrain = new Terrain(GraphicsDevice, SquareSize, Color.BlueViolet, 4, 4);
-            Terrain2 = new Terrain(GraphicsDevice, SquareSize, Color.Coral, 2, 2, new Vector3(50, 20, 3));
+            //                                                                largo , ancho Vector(derecha/izquierda, arriba/abajo, adelante/atras )
+
+            Terrain = new Terrain(GraphicsDevice, SquareSize, Color.BlueViolet, 9, 3, new Vector3(0, 0, 0));
+
+            Terrain3 = new Terrain(GraphicsDevice, SquareSize, Color.Green, 3, 3, new Vector3(-180, 0, 0));
+
+            Terrain2 = new Terrain(GraphicsDevice, SquareSize, Color.Coral, 3, 1, new Vector3(-180, 10, 10));
 
             base.LoadContent();
         }
@@ -124,6 +146,7 @@ namespace TGC.MonoGame.TP
         protected override void Update(GameTime gameTime)
         {
             // Aca deberiamos poner toda la logica de actualizacion del juego.
+            Camera.Update(gameTime);
 
             // Capturar Input teclado
             if (Keyboard.GetState().IsKeyDown(Keys.Escape))
@@ -131,6 +154,7 @@ namespace TGC.MonoGame.TP
                 //Salgo del juego.
                 Exit();
             }
+
             
             // Basado en el tiempo que paso se va generando una rotacion.
             //Rotation += Convert.ToSingle(gameTime.ElapsedGameTime.TotalSeconds);
@@ -150,18 +174,20 @@ namespace TGC.MonoGame.TP
             GraphicsDevice.Clear(Color.Black);
 
             // Para dibujar le modelo necesitamos pasarle informacion que el efecto esta esperando.
-            Effect.Parameters["View"].SetValue(View);
-            Effect.Parameters["Projection"].SetValue(Projection);
+            Effect.Parameters["View"].SetValue(Camera.View);
+            Effect.Parameters["Projection"].SetValue(Camera.Projection);
             Effect.Parameters["DiffuseColor"].SetValue(Color.DarkBlue.ToVector3());
 
             Terrain.Draw(View, Projection);
             Terrain2.Draw(View, Projection);
+            Terrain3.Draw(View, Projection);
 
            /* foreach (var mesh in Model.Meshes)
             {
                 Effect.Parameters["World"].SetValue(mesh.ParentBone.Transform * World);
                 mesh.Draw();
-            }*/
+            }
+            */
         }
 
         /// <summary>
