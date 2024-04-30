@@ -59,6 +59,18 @@ namespace TGC.MonoGame.TP
         // -------------------------------------
         private Terrain Terrain3 { get; set; }
 
+        private Terrain Terrain4 { get; set; }
+
+        private Terrain Terrain5 { get; set; }
+
+        private Terrain Terrain6 { get; set; }
+        
+        private Terrain Terrain7 { get; set; }
+        
+        private Terrain Terrain8 { get; set; }
+
+
+        // private SquarePrimitive CuboPrueba { get; set; }
 
         // -------------------------------------
 
@@ -78,6 +90,10 @@ namespace TGC.MonoGame.TP
             Camera = new FreeCamera(GraphicsDevice.Viewport.AspectRatio, Vector3.UnitZ * 150f, size);
 
             // La logica de inicializacion que no depende del contenido se recomienda poner en este metodo.
+
+            // -----------------------------
+            // CuboPrueba = SquarePrimitive(GraphicsDevice, SquareSize, Color.Black, new Vector3(0, 0, 0));
+            // -----------------------------
 
             // Apago el backface culling.
             // Esto se hace por un problema en el diseno del modelo del logo de la materia.
@@ -131,9 +147,21 @@ namespace TGC.MonoGame.TP
 
             Terrain = new Terrain(GraphicsDevice, SquareSize, Color.BlueViolet, 9, 3, new Vector3(0, 0, 0));
 
-            Terrain3 = new Terrain(GraphicsDevice, SquareSize, Color.Green, 3, 3, new Vector3(-180, 0, 0));
+            Terrain2 = new Terrain(GraphicsDevice, SquareSize, Color.Green, 3, 3, new Vector3(-180, 0, 0));
 
-            Terrain2 = new Terrain(GraphicsDevice, SquareSize, Color.Coral, 3, 1, new Vector3(-180, 10, 10));
+            Terrain3 = new Terrain(GraphicsDevice, SquareSize, Color.Coral, 3, 1, new Vector3(-180, 20, -20));  // escalera
+
+            Terrain4 = new Terrain(GraphicsDevice, SquareSize, Color.Red, 3, 1, new Vector3(-180, 40, -40)); // escalera
+
+            Terrain5 = new Terrain(GraphicsDevice, SquareSize, Color.Yellow, 3, 1, new Vector3(-180, 60, -60)); // escalera
+
+            Terrain6 = new Terrain(GraphicsDevice, SquareSize, Color.Blue, 3, 3, new Vector3(-180, 80, -80)); 
+
+            Terrain7 = new Terrain(GraphicsDevice, SquareSize, Color.DarkOrange, 3, 9, new Vector3(0, 80, -80));
+
+            Terrain8 = new Terrain(GraphicsDevice, SquareSize, Color.HotPink, 3, 3, new Vector3(180, 80, -80));
+
+            // CuboPrueba = SquarePrimitive(GraphicsDevice, SquareSize, Color.Black, new Vector3(0, 0, 0));
 
             base.LoadContent();
         }
@@ -171,7 +199,7 @@ namespace TGC.MonoGame.TP
         protected override void Draw(GameTime gameTime)
         {
             // Aca deberiamos poner toda la logia de renderizado del juego.
-            GraphicsDevice.Clear(Color.Black);
+            GraphicsDevice.Clear(Color.LightSkyBlue);
 
             // Para dibujar le modelo necesitamos pasarle informacion que el efecto esta esperando.
             Effect.Parameters["View"].SetValue(Camera.View);
@@ -181,6 +209,12 @@ namespace TGC.MonoGame.TP
             Terrain.Draw(View, Projection);
             Terrain2.Draw(View, Projection);
             Terrain3.Draw(View, Projection);
+            Terrain4.Draw(View, Projection);
+            Terrain5.Draw(View, Projection);
+            Terrain6.Draw(View, Projection);
+            Terrain7.Draw(View, Projection);
+            Terrain8.Draw(View, Projection);
+            // CuboPrueba.Draw(View, Projection);
 
            /* foreach (var mesh in Model.Meshes)
             {
