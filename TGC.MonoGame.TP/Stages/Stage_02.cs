@@ -63,7 +63,7 @@ class Stage_02 : Stage
                 new CubePrimitive(GraphicsDevice, Content, Color.Gray, coordinates: new Vector3(-875, -412.5f, -1500), scale: new Vector3(6, 1, 6), rotation: Matrix.CreateFromYawPitchRoll(0, 0, 0)),
                 new CubePrimitive(GraphicsDevice, Content, Color.Gray, coordinates: new Vector3(-762.5f, -362.5f, -1737.5f), scale: new Vector3(1, 3, 1), rotation: Matrix.CreateFromYawPitchRoll(0, 0, 0)),
                 new CubePrimitive(GraphicsDevice, Content, Color.Gray, coordinates: new Vector3(-987.5f, -362.5f, -1737.5f), scale: new Vector3(1, 3, 1), rotation: Matrix.CreateFromYawPitchRoll(0, 0, 0)),
-                new CubePrimitive(GraphicsDevice, Content, Color.Gray, coordinates: new Vector3(-875, -312.5f, -1737.5f), scale: new Vector3(10, 2, 1), rotation: Matrix.CreateFromYawPitchRoll(0, 0, 0)),
+                new CubePrimitive(GraphicsDevice, Content, Color.Gray, coordinates: new Vector3(-875, -300f, -1737.5f), scale: new Vector3(10, 2, 1), rotation: Matrix.CreateFromYawPitchRoll(0, 0, 0)),
                 new CubePrimitive(GraphicsDevice, Content, Color.Gray, coordinates: new Vector3(-875f, -412.5f, -1825f), scale: new Vector3(10f, 1f, 20f), rotation: Matrix.CreateFromYawPitchRoll(0f, 0f, 0f))
             };
     }
@@ -87,9 +87,7 @@ class Stage_02 : Stage
                 new CubePrimitive(GraphicsDevice, Content, Color.DarkGray, coordinates: new Vector3(-987.5f, -87.5f, -1337.5f), scale: new Vector3(1, 2, 1), rotation: Matrix.CreateFromYawPitchRoll(0, 0, 0)),
                 new CubePrimitive(GraphicsDevice, Content, Color.DarkGray, coordinates: new Vector3(-525, -225, -537.5f), scale: new Vector3(2, 2, 1), rotation: Matrix.CreateFromYawPitchRoll(0, 0, 0)),
                 new CubePrimitive(GraphicsDevice, Content, Color.DarkGray, coordinates: new Vector3(-400, -225, -537.5f), scale: new Vector3(2, 2, 1), rotation: Matrix.CreateFromYawPitchRoll(0, 0, 0)),
-                new CubePrimitive(GraphicsDevice, Content, Color.DarkGray, coordinates: new Vector3(-275, -225, -537.5f), scale: new Vector3(2, 2, 1), rotation: Matrix.CreateFromYawPitchRoll(0, 0, 0)),
-                new CubePrimitive(GraphicsDevice, Content, Color.DarkGray, coordinates: new Vector3(-875f, -412.5f, -1825f), scale: new Vector3(10f, 1f, 20f), rotation: Matrix.CreateFromYawPitchRoll(0f, 0f, 0f)),
-
+                new CubePrimitive(GraphicsDevice, Content, Color.DarkGray, coordinates: new Vector3(-275, -225, -537.5f), scale: new Vector3(2, 2, 1), rotation: Matrix.CreateFromYawPitchRoll(0, 0, 0))
             };
     }
 
