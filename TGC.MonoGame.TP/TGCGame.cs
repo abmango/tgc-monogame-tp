@@ -95,7 +95,7 @@ namespace TGC.MonoGame.TP
 
             Stage = new Stage_01(GraphicsDevice, Content);
 
-            MainCharacter = new Character(Content, Stage.CharacterInitialPosition);
+            MainCharacter = new Character(Content, Stage.CharacterInitialPosition, Stage.CharacterInitialYaw);
 
             base.LoadContent();
         }

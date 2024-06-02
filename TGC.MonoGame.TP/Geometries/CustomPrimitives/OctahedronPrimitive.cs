@@ -22,7 +22,7 @@ namespace TGC.MonoGame.TP.Geometries {
 
     public class OctahedronPrimitive : CustomPrimitive {
         
-        public OctahedronPrimitive(GraphicsDevice graphicsDevice, ContentManager content, float size, Color color) {
+        public OctahedronPrimitive(GraphicsDevice graphicsDevice, ContentManager content, float size, Color color, Vector3 coordinates) {
 
             Color = color;
 
@@ -47,6 +47,8 @@ namespace TGC.MonoGame.TP.Geometries {
             AddTriangle(vertexList[5], vertexList[4], vertexList[3], size, color);
             AddTriangle(vertexList[5], vertexList[2], vertexList[4], size, color);
             AddTriangle(vertexList[5], vertexList[1], vertexList[2], size, color);
+
+            World = Matrix.CreateTranslation(coordinates);
 
             InitializePrimitive(graphicsDevice, content);
         }

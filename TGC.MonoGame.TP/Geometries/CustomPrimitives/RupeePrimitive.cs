@@ -21,7 +21,7 @@ namespace TGC.MonoGame.TP.Geometries {
 
     public class RupeePrimitive : CustomPrimitive {
         
-        public RupeePrimitive(GraphicsDevice graphicsDevice, ContentManager content, float size, Color color) {
+        public RupeePrimitive(GraphicsDevice graphicsDevice, ContentManager content, float size, Color color, Vector3 coordinates) {
 
             Color = color;
 
@@ -84,6 +84,8 @@ namespace TGC.MonoGame.TP.Geometries {
             AddTriangle(vertexList[17], vertexList[11], vertexList[16], size, color);
             AddTriangle(vertexList[11], vertexList[17], vertexList[6], size, color);
             AddTriangle(vertexList[12], vertexList[6], vertexList[17], size, color);
+
+            World = Matrix.CreateTranslation(coordinates);
 
             InitializePrimitive(graphicsDevice, content);
         }

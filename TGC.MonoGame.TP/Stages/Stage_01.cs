@@ -10,7 +10,7 @@ class Stage_01 : Stage
 {
 
     public Stage_01(GraphicsDevice graphicsDevice, ContentManager content) : 
-        base(graphicsDevice, content, characterPosition: new Vector3(25, 25, -800)) {}
+        base(graphicsDevice, content, characterPosition: new Vector3(25, 25, -800), 0) {}
 
     protected override void LoadTrack()
     {
@@ -115,12 +115,12 @@ class Stage_01 : Stage
 
     protected override void LoadPickups()
     {
-        Pickups = new List<GeometricPrimitive>();
+        Pickups = new List<Pickup>();
     }
 
     protected override void LoadCheckpoints()
     {
-        Checkpoints = new List<GeometricPrimitive>();
+        Checkpoints = new List<Checkpoint>();
     }
 
     public override void Update(GameTime gameTime)

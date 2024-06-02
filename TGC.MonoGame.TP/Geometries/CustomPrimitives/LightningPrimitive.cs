@@ -21,7 +21,7 @@ namespace TGC.MonoGame.TP.Geometries {
 
     public class LightningPrimitive : CustomPrimitive {
         
-        public LightningPrimitive(GraphicsDevice graphicsDevice, ContentManager content, float size, Color color) {
+        public LightningPrimitive(GraphicsDevice graphicsDevice, ContentManager content, float size, Color color, Vector3 coordinates) {
 
             Color = color;
 
@@ -62,6 +62,8 @@ namespace TGC.MonoGame.TP.Geometries {
             AddTriangle(vertexList[5], vertexList[4], vertexList[11], size, color);
             AddTriangle(vertexList[8], vertexList[9], vertexList[2], size, color);
             AddTriangle(vertexList[3], vertexList[2], vertexList[9], size, color);
+
+            World = Matrix.CreateTranslation(coordinates);
 
             InitializePrimitive(graphicsDevice, content);
         }

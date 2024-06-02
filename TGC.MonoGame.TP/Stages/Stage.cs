@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 using TGC.MonoGame.TP.Camera;
 using TGC.MonoGame.TP.Geometries;
 using TGC.MonoGame.TP.MainCharacter;
+using TGC.MonoGame.TP.Stages;
 
 abstract class Stage
 {
@@ -17,23 +18,26 @@ abstract class Stage
     protected List<GeometricPrimitive> Track; // circuito y obstáculos fijos 
     protected List<GeometricPrimitive> Obstacles; // obstáculos móviles
     protected List<GeometricPrimitive> Signs; //FIXME: eventualmente podrían ser algo distinto a GeometricPrimitive
-    protected List<GeometricPrimitive> Pickups; //FIXME: eventualmente podrían ser algo distinto a GeometricPrimitive
-    protected List<GeometricPrimitive> Checkpoints; // puntos de respawn
+    protected List<Pickup> Pickups; //FIXME: eventualmente podrían ser algo distinto a GeometricPrimitive
+    protected List<Checkpoint> Checkpoints; // puntos de respawn
 
     public Vector3 CharacterInitialPosition;
+    public float CharacterInitialYaw;
 
-    public Stage(GraphicsDevice graphicsDevice, ContentManager content, Vector3 characterPosition)
+    public Stage(GraphicsDevice graphicsDevice, ContentManager content, Vector3 characterPosition, float characterInitialYaw)
     {
         GraphicsDevice = graphicsDevice;
         Content = content;
 
         CharacterInitialPosition = characterPosition;
+        CharacterInitialYaw = characterInitialYaw;
 
         LoadTrack();
         LoadObstacles();
         LoadSigns();
         LoadPickups();
         LoadCheckpoints();
+
     }
 
     public abstract void Update(GameTime gameTime);
@@ -56,7 +60,7 @@ abstract class Stage
             sign.Draw(view, projection);
         }
 
-        foreach (GeometricPrimitive pickup in Pickups)
+        foreach (Pickup pickup in Pickups)
         {
             pickup.Draw(view, projection);
         }

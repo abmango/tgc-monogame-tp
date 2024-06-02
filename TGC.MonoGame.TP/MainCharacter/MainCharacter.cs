@@ -19,7 +19,8 @@ namespace TGC.MonoGame.TP.MainCharacter
 
         Model Sphere;
         public Matrix World;
-        Matrix Scale = Matrix.CreateScale(12.5f);
+        const float radius = 12.5f;
+        Matrix Scale = Matrix.CreateScale(radius);
         Effect Effect;
 
         Material CurrentMaterial = Material.RustedMetal;
@@ -36,27 +37,29 @@ namespace TGC.MonoGame.TP.MainCharacter
         Matrix WorldWithBallSpin;
         float BallPitch=0f;
         float BallRoll=0f;
+        BoundingSphere BoundingSphere;
 
-
-        public Character(ContentManager content, Vector3 initialPosition)
+        public Character(ContentManager content, Vector3 initialPosition, float initialYaw)
         {
             Content = content;
 
 
             InitializeEffect();
-            InitializeSphere(initialPosition);
+            InitializeSphere(initialPosition, initialYaw);
             InitializeTextures();
         }
 
 
-        private void InitializeSphere(Vector3 initialPosition)
+        private void InitializeSphere(Vector3 initialPosition, float initialYaw)
         {
             // Got to set a texture, else the translation to mesh does not map UV
             Sphere = Content.Load<Model>(ContentFolder3D + "geometries/sphere");
 
             Position = initialPosition;
-            World = Scale * Matrix.CreateTranslation(Position);
+            World = Scale * Matrix.CreateFromYawPitchRoll(initialYaw, 0f, 0f) * Matrix.CreateTranslation(Position);
             WorldWithBallSpin=World;
+
+            BoundingSphere = new BoundingSphere(Position, radius);
 
             // Apply the effect to all mesh parts
             Sphere.Meshes.FirstOrDefault().MeshParts.FirstOrDefault().Effect = Effect;
@@ -258,8 +261,24 @@ namespace TGC.MonoGame.TP.MainCharacter
 
         public void MoveTo(Vector3 position)
         {
+            BoundingSphere.Center = position;            
             World = Scale * Matrix.CreateTranslation(position);
             WorldWithBallSpin=Matrix.CreateFromAxisAngle(BallSpinAxis, BallSpinAngle) * World;
         }
+
+        public BoundingSphere GetBoundingSphere()
+        {
+            return this.BoundingSphere; 
+        }
+
+        public void Respawn (Vector3 position, float yaw)
+        {
+            Velocity = Vector3.Zero;
+            Acceleration = Vector3.Zero;
+            BoundingSphere.Center = position;
+            World = Scale * Matrix.CreateFromYawPitchRoll(yaw, 0, 0) * Matrix.CreateTranslation(position);
+            WorldWithBallSpin = Matrix.CreateFromAxisAngle(BallSpinAxis, BallSpinAngle) * World;
+        }
+
     }
 }

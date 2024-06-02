@@ -22,7 +22,7 @@ namespace TGC.MonoGame.TP.Geometries {
 
     public class DiamondPrimitive : CustomPrimitive {
         
-        public DiamondPrimitive(GraphicsDevice graphicsDevice, ContentManager content, float size, Color color) {
+        public DiamondPrimitive(GraphicsDevice graphicsDevice, ContentManager content, float size, Color color, Vector3 coordinates) {
 
             Color = color;
 
@@ -72,6 +72,8 @@ namespace TGC.MonoGame.TP.Geometries {
             AddTriangle(vertexList[12], vertexList[8], vertexList[7], size, color);
             AddTriangle(vertexList[12], vertexList[7], vertexList[6], size, color);
             AddTriangle(vertexList[12], vertexList[6], vertexList[11], size, color);
+
+            World = Matrix.CreateTranslation(coordinates);
 
             InitializePrimitive(graphicsDevice, content);
         }
