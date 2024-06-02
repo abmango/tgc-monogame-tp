@@ -85,7 +85,7 @@ class Stage_01 : Stage
 
     protected override void LoadObstacles()
     {
-        Obstacles = new List<GeometricPrimitive>();
+        Obstacles = new List<MobileObstacle>();
     }
 
     protected override void LoadSigns()
@@ -121,12 +121,6 @@ class Stage_01 : Stage
     protected override void LoadCheckpoints()
     {
         Checkpoints = new List<Checkpoint>();
-    }
-
-    public override void Update(GameTime gameTime)
-    {
-        // TODO: actualizar el estado de todas las piezas móviles del nivel
-
     }
 
 }

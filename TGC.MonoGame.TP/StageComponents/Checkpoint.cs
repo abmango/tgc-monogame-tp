@@ -1,9 +1,9 @@
 ﻿using Microsoft.Xna.Framework;
 using TGC.MonoGame.TP.MainCharacter;
+using TGC.MonoGame.TP.StageComponents;
 
-internal class Checkpoint
+internal class Checkpoint : StageComponent
 {
-    BoundingBox Box;
     Vector3 RespawnPosition;
     float RespawnYaw;
 
@@ -17,7 +17,12 @@ internal class Checkpoint
         Box = new BoundingBox(min, max);
     }
 
-    public bool Intersec(Character sphere)
+    public override void Draw(Matrix view, Matrix projection)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override bool Intersects(Character sphere)
     {
         return Box.Intersects(sphere.GetBoundingSphere());
     }
@@ -27,4 +32,8 @@ internal class Checkpoint
         sphere.Respawn(RespawnPosition, RespawnYaw);
     }
 
+    public override void Update(GameTime gameTime)
+    {
+        throw new System.NotImplementedException();
+    }
 }

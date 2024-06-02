@@ -117,6 +117,8 @@ namespace TGC.MonoGame.TP
 
             FollowCamera.Update(gameTime, MainCharacter.World);
 
+            Stage.Update(gameTime);
+
             base.Update(gameTime);
         }
 

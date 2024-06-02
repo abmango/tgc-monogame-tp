@@ -5,15 +5,11 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using BepuPhysics.Constraints;
 using static System.Formats.Asn1.AsnWriter;
+using TGC.MonoGame.TP.StageComponents;
 
-abstract class Pickup
+abstract class Pickup : StageComponent
 {
-    protected BoundingBox Box;
-    protected Vector3 Position;
-    protected GeometricPrimitive Model;
-    protected GraphicsDevice graphics;
-    protected ContentManager contentMgr;
-    protected const float DefaultSize = 25f;
+
     protected float Yaw;
 
     public Pickup(GraphicsDevice graphicsDevice, ContentManager content, Vector3 center)
@@ -29,11 +25,12 @@ abstract class Pickup
         Model = CreateModel(graphicsDevice, content, center);
     }
 
-    public bool Intersec(Character sphere)
+    public override bool Intersects(Character sphere)
     {
         return Box.Intersects(sphere.GetBoundingSphere());
     }
-    public void Update(GameTime gameTime)
+
+    public override void Update(GameTime gameTime)
     {
         float elapsedTime = (float) gameTime.ElapsedGameTime.TotalSeconds;
         Yaw += elapsedTime * MathHelper.Pi;
@@ -41,7 +38,7 @@ abstract class Pickup
         Model.World = Matrix.CreateFromYawPitchRoll(Yaw, 0, 0) * Matrix.CreateTranslation(Position);
     }
 
-    public void Draw(Matrix view, Matrix projection)
+    public override void Draw(Matrix view, Matrix projection)
     {
         Model.Draw(view, projection);
     }

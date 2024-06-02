@@ -16,7 +16,7 @@ abstract class Stage
     protected ContentManager Content;
 
     protected List<GeometricPrimitive> Track; // circuito y obstáculos fijos 
-    protected List<GeometricPrimitive> Obstacles; // obstáculos móviles
+    protected List<MobileObstacle> Obstacles; // obstáculos móviles
     protected List<GeometricPrimitive> Signs; //FIXME: eventualmente podrían ser algo distinto a GeometricPrimitive
     protected List<Pickup> Pickups; //FIXME: eventualmente podrían ser algo distinto a GeometricPrimitive
     protected List<Checkpoint> Checkpoints; // puntos de respawn
@@ -40,8 +40,17 @@ abstract class Stage
 
     }
 
-    public abstract void Update(GameTime gameTime);
-
+    public void Update(GameTime gameTime)
+    {
+        foreach (MobileObstacle primitive in Obstacles)
+        {
+            primitive.Update(gameTime);
+        }
+        foreach (Pickup pickup in Pickups)
+        {
+            pickup.Update(gameTime);
+        }
+    }
 
     public void Draw(Matrix view, Matrix projection)
     {
@@ -50,7 +59,7 @@ abstract class Stage
             primitive.Draw(view, projection);
         }
 
-        foreach (GeometricPrimitive primitive in Obstacles)
+        foreach (MobileObstacle primitive in Obstacles)
         {
             primitive.Draw(view, projection);
         }
