@@ -43,7 +43,12 @@ abstract class Pickup : StageComponent
         Model.Draw(view, projection);
     }
 
-    protected abstract GeometricPrimitive CreateModel(GraphicsDevice graphicsDevice, ContentManager content, Vector3 center);
+    protected override GeometricPrimitive CreateModel(GraphicsDevice graphicsDevice, ContentManager content, Vector3 coordinates, Vector3 scale, Matrix rotation)
+    {
+        // todos los items van a tener un tamaño estándar y van a rotar a la par
+        return CreateModel(graphicsDevice, contentMgr, coordinates);
+    }
+    protected abstract GeometricPrimitive CreateModel(GraphicsDevice graphicsDevice, ContentManager content, Vector3 coordinates);
 
     protected abstract void ModifyCharacterStats(Character sphere);
 

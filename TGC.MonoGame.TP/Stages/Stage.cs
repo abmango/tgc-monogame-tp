@@ -50,6 +50,10 @@ abstract class Stage
         {
             pickup.Update(gameTime);
         }
+        foreach (Checkpoint checkpoint in Checkpoints)
+        {
+            checkpoint.Update(gameTime);
+        }
     }
 
     public void Draw(Matrix view, Matrix projection)
@@ -72,6 +76,11 @@ abstract class Stage
         foreach (Pickup pickup in Pickups)
         {
             pickup.Draw(view, projection);
+        }
+
+        foreach (Checkpoint checkpoint in Checkpoints)
+        {
+            checkpoint.Draw(view, projection);
         }
     }
 

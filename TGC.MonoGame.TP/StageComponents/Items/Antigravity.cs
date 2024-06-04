@@ -13,7 +13,7 @@ namespace TGC.MonoGame.TP.Stages.Items
 
         protected override GeometricPrimitive CreateModel(GraphicsDevice graphicsDevice, ContentManager content, Vector3 center)
         {
-            return new OctahedronPrimitive(graphicsDevice, contentMgr, DefaultSize, Color.Cyan, Position);
+            return new OctahedronPrimitive(graphicsDevice, contentMgr, DefaultSize, Color.White, Position);
         }
 
         protected override void ModifyCharacterStats(Character sphere)

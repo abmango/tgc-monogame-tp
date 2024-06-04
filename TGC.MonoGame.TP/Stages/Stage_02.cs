@@ -17,7 +17,6 @@ class Stage_02 : Stage
     {
         Track = new List<GeometricPrimitive>()
             {
-            // TODO : adaptar a la nueva clase
                 new CubePrimitive(GraphicsDevice, Content, Color.Gray, coordinates: new Vector3(0, 0, 0), scale: new Vector3(30, 1, 10), rotation: Matrix.CreateFromYawPitchRoll(0, 0, 0)),
                 new CubePrimitive(GraphicsDevice, Content, Color.Gray, coordinates: new Vector3(87.5f, 50, -112.5f), scale: new Vector3(1, 3, 1), rotation: Matrix.CreateFromYawPitchRoll(0, 0, 0)),
                 new CubePrimitive(GraphicsDevice, Content, Color.Gray, coordinates: new Vector3(87.5f, 50, 112.5f), scale: new Vector3(1, 3, 1), rotation: Matrix.CreateFromYawPitchRoll(0, 0, 0)),
@@ -72,25 +71,24 @@ class Stage_02 : Stage
     protected override void LoadObstacles()
     {
         Obstacles = new List<MobileObstacle>()
-            {
-            // TODO : adaptar a la nueva clase
-            //    new CubePrimitive(GraphicsDevice, Content, Color.DarkGray, coordinates: new Vector3(-875, -412.5f, -875), scale: new Vector3(4, 1, 4), rotation: Matrix.CreateFromYawPitchRoll(0, 0, 0)),
-            //    new CubePrimitive(GraphicsDevice, Content, Color.DarkGray, coordinates: new Vector3(-875, -412.5f, -975), scale: new Vector3(4, 1, 4), rotation: Matrix.CreateFromYawPitchRoll(0, 0, 0)),
-            //    new CubePrimitive(GraphicsDevice, Content, Color.DarkGray, coordinates: new Vector3(-875, -412.5f, -1075), scale: new Vector3(4, 1, 4), rotation: Matrix.CreateFromYawPitchRoll(0, 0, 0)),
-            //    new CubePrimitive(GraphicsDevice, Content, Color.DarkGray, coordinates: new Vector3(-875, -412.5f, -1175), scale: new Vector3(4, 1, 4), rotation: Matrix.CreateFromYawPitchRoll(0, 0, 0)),
-            //    new CubePrimitive(GraphicsDevice, Content, Color.DarkGray, coordinates: new Vector3(-875, -412.5f, -1275), scale: new Vector3(4, 1, 4), rotation: Matrix.CreateFromYawPitchRoll(0, 0, 0)),
-            //    new CubePrimitive(GraphicsDevice, Content, Color.DarkGray, coordinates: new Vector3(-875, -412.5f, -1375), scale: new Vector3(4, 1, 4), rotation: Matrix.CreateFromYawPitchRoll(0, 0, 0)),
-            //    new CubePrimitive(GraphicsDevice, Content, Color.DarkGray, coordinates: new Vector3(-887.5f, 37.5f, 37.5f), scale: new Vector3(1, 2, 3), rotation: Matrix.CreateFromYawPitchRoll(0, 0, 0)),
-            //    new CubePrimitive(GraphicsDevice, Content, Color.DarkGray, coordinates: new Vector3(-962.5f, 37.5f, -37.5f), scale: new Vector3(1, 2, 3), rotation: Matrix.CreateFromYawPitchRoll(0, 0, 0)),
-            //    new CubePrimitive(GraphicsDevice, Content, Color.DarkGray, coordinates: new Vector3(-1037.5f, 37.5f, 37.5f), scale: new Vector3(1, 2, 3), rotation: Matrix.CreateFromYawPitchRoll(0, 0, 0)),
-            //    new CubePrimitive(GraphicsDevice, Content, Color.DarkGray, coordinates: new Vector3(-1250, -12.5f, -825), scale: new Vector3(2, 2, 1), rotation: Matrix.CreateFromYawPitchRoll(0, 0, 0)),
-            //    new CubePrimitive(GraphicsDevice, Content, Color.DarkGray, coordinates: new Vector3(-1137.5f, -87.5f, -1337.5f), scale: new Vector3(1, 2, 1), rotation: Matrix.CreateFromYawPitchRoll(0, 0, 0)),
-            //    new CubePrimitive(GraphicsDevice, Content, Color.DarkGray, coordinates: new Vector3(-1062.5f, -87.5f, -1287.5f), scale: new Vector3(1, 2, 1), rotation: Matrix.CreateFromYawPitchRoll(0, 0, 0)),
-            //    new CubePrimitive(GraphicsDevice, Content, Color.DarkGray, coordinates: new Vector3(-987.5f, -87.5f, -1337.5f), scale: new Vector3(1, 2, 1), rotation: Matrix.CreateFromYawPitchRoll(0, 0, 0)),
-            //    new CubePrimitive(GraphicsDevice, Content, Color.DarkGray, coordinates: new Vector3(-525, -225, -537.5f), scale: new Vector3(2, 2, 1), rotation: Matrix.CreateFromYawPitchRoll(0, 0, 0)),
-            //    new CubePrimitive(GraphicsDevice, Content, Color.DarkGray, coordinates: new Vector3(-400, -225, -537.5f), scale: new Vector3(2, 2, 1), rotation: Matrix.CreateFromYawPitchRoll(0, 0, 0)),
-            //    new CubePrimitive(GraphicsDevice, Content, Color.DarkGray, coordinates: new Vector3(-275, -225, -537.5f), scale: new Vector3(2, 2, 1), rotation: Matrix.CreateFromYawPitchRoll(0, 0, 0))
-            };
+        {
+            new MobileObstacle(GraphicsDevice, Content, new Vector3(-875, -412.5f, -875), new Vector3(4, 1, 4), new Vector3(0, 0, 0), new Vector3(0, 0, -5)),
+            new MobileObstacle(GraphicsDevice, Content, new Vector3(-875, -412.5f, -975), new Vector3(4, 1, 4), new Vector3(0, 0, 0), new Vector3(0, 0, 5)),
+            new MobileObstacle(GraphicsDevice, Content, new Vector3(-875, -412.5f, -1075), new Vector3(4, 1, 4), new Vector3(0, 0, 0), new Vector3(0, 0,-5)),
+            new MobileObstacle(GraphicsDevice, Content, new Vector3(-875, -412.5f, -1175), new Vector3(4, 1, 4), new Vector3(0, 0, 0), new Vector3(0, 0, 0)),
+            new MobileObstacle(GraphicsDevice, Content, new Vector3(-875, -412.5f, -1275), new Vector3(4, 1, 4), new Vector3(0, 0, 0), new Vector3(0, 0, 3)),
+            new MobileObstacle(GraphicsDevice, Content, new Vector3(-875, -412.5f, -1375), new Vector3(4, 1, 4), new Vector3(0, 0, 0), new Vector3(0, 0, -3)),
+            new MobileObstacle(GraphicsDevice, Content, new Vector3(-887.5f, 37.5f, 37.5f), new Vector3(1, 2, 3), new Vector3(0, 0, 0), new Vector3(0, 0, 3)),
+            new MobileObstacle(GraphicsDevice, Content, new Vector3(-525, -225, -537.5f), new Vector3(2, 2, 1), new Vector3(0, 0, 0), new Vector3(0, 0, 0)),
+            new MobileObstacle(GraphicsDevice, Content, new Vector3(-400, -225, -537.5f), new Vector3(2, 2, 1), new Vector3(0, 0, 0), new Vector3(0, 0, 0)),
+            new MobileObstacle(GraphicsDevice, Content, new Vector3(-275, -225, -537.5f), new Vector3(2, 2, 1), new Vector3(0, 0, 0), new Vector3(0, 0, 0)),
+            new MobileObstacle(GraphicsDevice, Content, new Vector3(-962.5f, 37.5f, -37.5f), new Vector3(1, 2, 3), new Vector3(0, 0, 0), new Vector3(0, 0, 4)),
+            new MobileObstacle(GraphicsDevice, Content, new Vector3(-1037.5f, 37.5f, 37.5f), new Vector3(1, 2, 3), new Vector3(0, 0, 0), new Vector3(0, 0, -4)),
+            new MobileObstacle(GraphicsDevice, Content, new Vector3(-1250, -12.5f, -825), new Vector3(2, 2, 1), new Vector3(0, 0, 0), new Vector3(0, 0, 4)),
+            new MobileObstacle(GraphicsDevice, Content, new Vector3(-1137.5f, -87.5f, -1337.5f), new Vector3(1, 2, 1), new Vector3(0, 0, 0), new Vector3(0, 0, -4)),
+            new MobileObstacle(GraphicsDevice, Content, new Vector3(-1062.5f, -87.5f, -1287.5f), new Vector3(1, 2, 1), new Vector3(0, 0, 0), new Vector3(0, 0, 4)),
+            new MobileObstacle(GraphicsDevice, Content, new Vector3(-987.5f, -87.5f, -1337.5f), new Vector3(1, 2, 1), new Vector3(0, 0, 0), new Vector3(0, 0, -4))
+        };
     }
 
     protected override void LoadSigns()
@@ -215,13 +213,12 @@ class Stage_02 : Stage
     {
         Checkpoints = new List<Checkpoint>()
             {
-                //  TODO: ingresar ángulos (YAW)
-                new Checkpoint(new Vector3(-875f, -412.5f, -1762.5f), new Vector3(10, 1, 15), 0), 
-                new Checkpoint(new Vector3(-875f, -337.5f, -1737.5f), new Vector3(10, 5, 1), 0),
-                new Checkpoint(new Vector3(-812.5f, -300f, -575f), new Vector3(1, 6, 4), 0),
-                new Checkpoint(new Vector3(237.5f, -200f, -625f), new Vector3(5, 4, 1), 0),
-                new Checkpoint(new Vector3(-412.5f, -87.5f, -1250f), new Vector3(1, 4, 8), 0),
-                new Checkpoint(new Vector3(-1250f, 12.5f, -550f), new Vector3(8, 4, 1), 0)
+                new Checkpoint(GraphicsDevice, Content, new Vector3(-1250f, 62.5f, -87.5f), scale: new Vector3(4f, 4f, 1f), MathHelper.Pi),
+                new Checkpoint(GraphicsDevice, Content, new Vector3(-1237.5f, -12.5f, -987.5f), scale: new Vector3(6f, 4f, 1f), MathHelper.Pi),
+                new Checkpoint(GraphicsDevice, Content, new Vector3(-887.5f, -62.5f, -1312.5f), scale: new Vector3(1f, 4f, 3f), MathHelper.Pi * .75f),
+                new Checkpoint(GraphicsDevice, Content, new Vector3(287.5f, -175f, -862.5f), scale: new Vector3(3f, 4f, 1f), 0f),
+                new Checkpoint(GraphicsDevice, Content, new Vector3(-875f, -350f, -787.5f), scale: new Vector3(4f, 4f, 1f), MathHelper.Pi),
+                new Checkpoint(GraphicsDevice, Content, new Vector3(-875f, -362.5f, -1737.5f), new Vector3(8, 3, 1), MathHelper.Pi) // meta
             };
     }
 

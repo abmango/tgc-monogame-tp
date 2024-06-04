@@ -26,10 +26,9 @@ internal class MobileObstacle : StageComponent
         Rotation = rotation;
         Movement = movement;
 
-        // TODO : BoundingBox
-        //Vector3 min = center - Vector3.One;
-        //Vector3 max = center + Vector3.One;
-        //Box = new BoundingBox(min, max);
+        Vector3 min = coordinates - scale;
+        Vector3 max = coordinates + scale;
+        Box = new BoundingBox(min, max);
         
         // TODO : rotation
          Model = CreateModel(graphicsDevice, content, coordinates, scale, Matrix.CreateFromYawPitchRoll(0,0,0));
@@ -42,7 +41,7 @@ internal class MobileObstacle : StageComponent
     public override void Update(GameTime gameTime)
     {
         // TODO : Movimiento
-        throw new NotImplementedException();
+        //throw new NotImplementedException();
     }
 
     public override void Draw(Matrix view, Matrix projection)
@@ -50,7 +49,7 @@ internal class MobileObstacle : StageComponent
         Model.Draw(view, projection);
     }
 
-    protected GeometricPrimitive CreateModel(GraphicsDevice graphicsDevice, ContentManager content, Vector3 coordinates, Vector3 scale, Matrix rotation)
+    protected override GeometricPrimitive CreateModel(GraphicsDevice graphicsDevice, ContentManager content, Vector3 coordinates, Vector3 scale, Matrix rotation)
     {
         return new CubePrimitive(graphicsDevice, content, Color.Gray, DefaultSize, coordinates, scale, rotation);
     }

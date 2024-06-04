@@ -21,5 +21,9 @@ namespace TGC.MonoGame.TP.StageComponents
         public abstract void Draw(Matrix view, Matrix projection);
 
         public abstract bool Intersects(Character sphere);
+
+
+
+        protected abstract GeometricPrimitive CreateModel(GraphicsDevice graphicsDevice, ContentManager content, Vector3 coordinates, Vector3 scale, Matrix rotation);
     }
 }

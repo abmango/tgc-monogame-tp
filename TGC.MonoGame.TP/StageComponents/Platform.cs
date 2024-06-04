@@ -21,4 +21,9 @@ internal class Platform : StageComponent
     {
         throw new System.NotImplementedException();
     }
+
+    protected override GeometricPrimitive CreateModel(GraphicsDevice graphicsDevice, ContentManager content, Vector3 coordinates, Vector3 scale, Matrix rotation)
+    {
+        throw new System.NotImplementedException();
+    }
 }
