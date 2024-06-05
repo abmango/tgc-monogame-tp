@@ -56,7 +56,7 @@ namespace TGC.MonoGame.TP.MainCharacter
             Sphere = Content.Load<Model>(ContentFolder3D + "geometries/sphere");
 
             Position = initialPosition;
-            World = Scale * Matrix.CreateFromYawPitchRoll(initialYaw, 0f, 0f) * Matrix.CreateTranslation(Position);
+            World = Scale * Matrix.CreateTranslation(Position);
             WorldWithBallSpin=World;
 
             BoundingSphere = new BoundingSphere(Position, radius);

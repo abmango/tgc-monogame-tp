@@ -40,6 +40,8 @@ internal class MobileObstacle : StageComponent
     }
     public override void Update(GameTime gameTime)
     {
+        float elapsedTime = (float) gameTime.ElapsedGameTime.TotalSeconds;
+         
         // TODO : Movimiento
         //throw new NotImplementedException();
     }

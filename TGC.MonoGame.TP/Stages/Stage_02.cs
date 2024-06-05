@@ -11,21 +11,21 @@ class Stage_02 : Stage
 {
 
     public Stage_02(GraphicsDevice graphicsDevice, ContentManager content) :
-        base(graphicsDevice, content, characterPosition: new Vector3(300f, 25f, 0f), MathHelper.PiOver2) { }
+        base(graphicsDevice, content, characterPosition: new Vector3(300f, 25f, 0f),-MathHelper.PiOver2) { }
 
     protected override void LoadTrack()
     {
         Track = new List<GeometricPrimitive>()
             {
                 new CubePrimitive(GraphicsDevice, Content, Color.Gray, coordinates: new Vector3(0, 0, 0), scale: new Vector3(30, 1, 10), rotation: Matrix.CreateFromYawPitchRoll(0, 0, 0)),
-                new CubePrimitive(GraphicsDevice, Content, Color.Gray, coordinates: new Vector3(87.5f, 50, -112.5f), scale: new Vector3(1, 3, 1), rotation: Matrix.CreateFromYawPitchRoll(0, 0, 0)),
-                new CubePrimitive(GraphicsDevice, Content, Color.Gray, coordinates: new Vector3(87.5f, 50, 112.5f), scale: new Vector3(1, 3, 1), rotation: Matrix.CreateFromYawPitchRoll(0, 0, 0)),
-                new CubePrimitive(GraphicsDevice, Content, Color.Gray, coordinates: new Vector3(87.5f, 112.5f, 0), scale: new Vector3(1, 2, 10), rotation: Matrix.CreateFromYawPitchRoll(3.1415927f, 0, 0)),
+                new CubePrimitive(GraphicsDevice, Content, Color.Black, coordinates: new Vector3(87.5f, 50, -112.5f), scale: new Vector3(1, 3, 1), rotation: Matrix.CreateFromYawPitchRoll(0, 0, 0)),
+                new CubePrimitive(GraphicsDevice, Content, Color.Black, coordinates: new Vector3(87.5f, 50, 112.5f), scale: new Vector3(1, 3, 1), rotation: Matrix.CreateFromYawPitchRoll(0, 0, 0)),
+                new CubePrimitive(GraphicsDevice, Content, Color.Black, coordinates: new Vector3(87.5f, 112.5f, 0), scale: new Vector3(1, 2, 10), rotation: Matrix.CreateFromYawPitchRoll(3.1415927f, 0, 0)),
                 new CubePrimitive(GraphicsDevice, Content, Color.Gray, coordinates: new Vector3(-625, 0, 0), scale: new Vector3(20, 1, 8), rotation: Matrix.CreateFromYawPitchRoll(0, 0, 0)),
                 new CubePrimitive(GraphicsDevice, Content, Color.Gray, coordinates: new Vector3(-1000, 0, 0), scale: new Vector3(10, 1, 6), rotation: Matrix.CreateFromYawPitchRoll(0, 0, 0)),
                 new CubePrimitive(GraphicsDevice, Content, Color.Gray, coordinates: new Vector3(-1212.5f, 0, 0), scale: new Vector3(7, 1, 4), rotation: Matrix.CreateFromYawPitchRoll(0, 0, 0)),
-                new CubePrimitive(GraphicsDevice, Content, Color.Gray, coordinates: new Vector3(-1212.5f, 25, 37.5f), scale: new Vector3(7, 1, 1), rotation: Matrix.CreateFromYawPitchRoll(0, 0, 0)),
-                new CubePrimitive(GraphicsDevice, Content, Color.Gray, coordinates: new Vector3(-1287.5f, 25, -25), scale: new Vector3(1, 1, 4), rotation: Matrix.CreateFromYawPitchRoll(0, 0, 0)),
+                new CubePrimitive(GraphicsDevice, Content, Color.Black, coordinates: new Vector3(-1212.5f, 25, 37.5f), scale: new Vector3(7, 1, 1), rotation: Matrix.CreateFromYawPitchRoll(0, 0, 0)),
+                new CubePrimitive(GraphicsDevice, Content, Color.Black, coordinates: new Vector3(-1287.5f, 25, -25), scale: new Vector3(1, 1, 4), rotation: Matrix.CreateFromYawPitchRoll(0, 0, 0)),
                 new CubePrimitive(GraphicsDevice, Content, Color.Gray, coordinates: new Vector3(-1250, 0, -175), scale: new Vector3(4, 1, 10), rotation: Matrix.CreateFromYawPitchRoll(0, 0, 0)),
                 new CubePrimitive(GraphicsDevice, Content, Color.Gray, coordinates: new Vector3(-1275, -25f, -362.5f), scale: new Vector3(2, 1, 5), rotation: Matrix.CreateFromYawPitchRoll(3.1415927f, 0, 0)),
                 new CubePrimitive(GraphicsDevice, Content, Color.Gray, coordinates: new Vector3(-1225, -12.5f, -400), scale: new Vector3(2, 2, 8), rotation: Matrix.CreateFromYawPitchRoll(-3.1415927f, 0, 0)),
@@ -61,9 +61,9 @@ class Stage_02 : Stage
                 new CubePrimitive(GraphicsDevice, Content, Color.Gray, coordinates: new Vector3(-875, -412.5f, -575), scale: new Vector3(4, 1, 4), rotation: Matrix.CreateFromYawPitchRoll(0, 0, 0)),
                 new CubePrimitive(GraphicsDevice, Content, Color.Gray, coordinates: new Vector3(-875, -412.5f, -725), scale: new Vector3(4, 1, 6), rotation: Matrix.CreateFromYawPitchRoll(0, 0, 0)),
                 new CubePrimitive(GraphicsDevice, Content, Color.Gray, coordinates: new Vector3(-875, -412.5f, -1500), scale: new Vector3(6, 1, 6), rotation: Matrix.CreateFromYawPitchRoll(0, 0, 0)),
-                new CubePrimitive(GraphicsDevice, Content, Color.Gray, coordinates: new Vector3(-762.5f, -362.5f, -1737.5f), scale: new Vector3(1, 3, 1), rotation: Matrix.CreateFromYawPitchRoll(0, 0, 0)),
-                new CubePrimitive(GraphicsDevice, Content, Color.Gray, coordinates: new Vector3(-987.5f, -362.5f, -1737.5f), scale: new Vector3(1, 3, 1), rotation: Matrix.CreateFromYawPitchRoll(0, 0, 0)),
-                new CubePrimitive(GraphicsDevice, Content, Color.Gray, coordinates: new Vector3(-875, -300f, -1737.5f), scale: new Vector3(10, 2, 1), rotation: Matrix.CreateFromYawPitchRoll(0, 0, 0)),
+                new CubePrimitive(GraphicsDevice, Content, Color.Black, coordinates: new Vector3(-762.5f, -362.5f, -1737.5f), scale: new Vector3(1, 3, 1), rotation: Matrix.CreateFromYawPitchRoll(0, 0, 0)),
+                new CubePrimitive(GraphicsDevice, Content, Color.Black, coordinates: new Vector3(-987.5f, -362.5f, -1737.5f), scale: new Vector3(1, 3, 1), rotation: Matrix.CreateFromYawPitchRoll(0, 0, 0)),
+                new CubePrimitive(GraphicsDevice, Content, Color.Black, coordinates: new Vector3(-875, -300f, -1737.5f), scale: new Vector3(10, 2, 1), rotation: Matrix.CreateFromYawPitchRoll(0, 0, 0)),
                 new CubePrimitive(GraphicsDevice, Content, Color.Gray, coordinates: new Vector3(-875f, -412.5f, -1825f), scale: new Vector3(10f, 1f, 20f), rotation: Matrix.CreateFromYawPitchRoll(0f, 0f, 0f))
             };
     }
@@ -72,22 +72,22 @@ class Stage_02 : Stage
     {
         Obstacles = new List<MobileObstacle>()
         {
+            //new MobileObstacle(GraphicsDevice, Content, new Vector3(-887.5f, 37.5f, 37.5f), new Vector3(1, 2, 3), new Vector3(0, 0, 0), new Vector3(0, 0, 3)),
+            //new MobileObstacle(GraphicsDevice, Content, new Vector3(-525, -225, -537.5f), new Vector3(2, 2, 1), new Vector3(0, 0, 0), new Vector3(0, 0, 0)),
+            //new MobileObstacle(GraphicsDevice, Content, new Vector3(-400, -225, -537.5f), new Vector3(2, 2, 1), new Vector3(0, 0, 0), new Vector3(0, 0, 0)),
+            //new MobileObstacle(GraphicsDevice, Content, new Vector3(-275, -225, -537.5f), new Vector3(2, 2, 1), new Vector3(0, 0, 0), new Vector3(0, 0, 0)),
+            //new MobileObstacle(GraphicsDevice, Content, new Vector3(-962.5f, 37.5f, -37.5f), new Vector3(1, 2, 3), new Vector3(0, 0, 0), new Vector3(0, 0, 4)),
+            //new MobileObstacle(GraphicsDevice, Content, new Vector3(-1037.5f, 37.5f, 37.5f), new Vector3(1, 2, 3), new Vector3(0, 0, 0), new Vector3(0, 0, -4)),
+            //new MobileObstacle(GraphicsDevice, Content, new Vector3(-1250, -12.5f, -825), new Vector3(2, 2, 1), new Vector3(0, 0, 0), new Vector3(0, 0, 4)),
+            //new MobileObstacle(GraphicsDevice, Content, new Vector3(-1137.5f, -87.5f, -1337.5f), new Vector3(1, 2, 1), new Vector3(0, 0, 0), new Vector3(0, 0, -4)),
+            //new MobileObstacle(GraphicsDevice, Content, new Vector3(-1062.5f, -87.5f, -1287.5f), new Vector3(1, 2, 1), new Vector3(0, 0, 0), new Vector3(0, 0, 4)),
+            //new MobileObstacle(GraphicsDevice, Content, new Vector3(-987.5f, -87.5f, -1337.5f), new Vector3(1, 2, 1), new Vector3(0, 0, 0), new Vector3(0, 0, -4)),
             new MobileObstacle(GraphicsDevice, Content, new Vector3(-875, -412.5f, -875), new Vector3(4, 1, 4), new Vector3(0, 0, 0), new Vector3(0, 0, -5)),
             new MobileObstacle(GraphicsDevice, Content, new Vector3(-875, -412.5f, -975), new Vector3(4, 1, 4), new Vector3(0, 0, 0), new Vector3(0, 0, 5)),
             new MobileObstacle(GraphicsDevice, Content, new Vector3(-875, -412.5f, -1075), new Vector3(4, 1, 4), new Vector3(0, 0, 0), new Vector3(0, 0,-5)),
             new MobileObstacle(GraphicsDevice, Content, new Vector3(-875, -412.5f, -1175), new Vector3(4, 1, 4), new Vector3(0, 0, 0), new Vector3(0, 0, 0)),
             new MobileObstacle(GraphicsDevice, Content, new Vector3(-875, -412.5f, -1275), new Vector3(4, 1, 4), new Vector3(0, 0, 0), new Vector3(0, 0, 3)),
-            new MobileObstacle(GraphicsDevice, Content, new Vector3(-875, -412.5f, -1375), new Vector3(4, 1, 4), new Vector3(0, 0, 0), new Vector3(0, 0, -3)),
-            new MobileObstacle(GraphicsDevice, Content, new Vector3(-887.5f, 37.5f, 37.5f), new Vector3(1, 2, 3), new Vector3(0, 0, 0), new Vector3(0, 0, 3)),
-            new MobileObstacle(GraphicsDevice, Content, new Vector3(-525, -225, -537.5f), new Vector3(2, 2, 1), new Vector3(0, 0, 0), new Vector3(0, 0, 0)),
-            new MobileObstacle(GraphicsDevice, Content, new Vector3(-400, -225, -537.5f), new Vector3(2, 2, 1), new Vector3(0, 0, 0), new Vector3(0, 0, 0)),
-            new MobileObstacle(GraphicsDevice, Content, new Vector3(-275, -225, -537.5f), new Vector3(2, 2, 1), new Vector3(0, 0, 0), new Vector3(0, 0, 0)),
-            new MobileObstacle(GraphicsDevice, Content, new Vector3(-962.5f, 37.5f, -37.5f), new Vector3(1, 2, 3), new Vector3(0, 0, 0), new Vector3(0, 0, 4)),
-            new MobileObstacle(GraphicsDevice, Content, new Vector3(-1037.5f, 37.5f, 37.5f), new Vector3(1, 2, 3), new Vector3(0, 0, 0), new Vector3(0, 0, -4)),
-            new MobileObstacle(GraphicsDevice, Content, new Vector3(-1250, -12.5f, -825), new Vector3(2, 2, 1), new Vector3(0, 0, 0), new Vector3(0, 0, 4)),
-            new MobileObstacle(GraphicsDevice, Content, new Vector3(-1137.5f, -87.5f, -1337.5f), new Vector3(1, 2, 1), new Vector3(0, 0, 0), new Vector3(0, 0, -4)),
-            new MobileObstacle(GraphicsDevice, Content, new Vector3(-1062.5f, -87.5f, -1287.5f), new Vector3(1, 2, 1), new Vector3(0, 0, 0), new Vector3(0, 0, 4)),
-            new MobileObstacle(GraphicsDevice, Content, new Vector3(-987.5f, -87.5f, -1337.5f), new Vector3(1, 2, 1), new Vector3(0, 0, 0), new Vector3(0, 0, -4))
+            new MobileObstacle(GraphicsDevice, Content, new Vector3(-875, -412.5f, -1375), new Vector3(4, 1, 4), new Vector3(0, 0, 0), new Vector3(0, 0, -3))
         };
     }
 

@@ -78,10 +78,10 @@ abstract class Stage
             pickup.Draw(view, projection);
         }
 
-        foreach (Checkpoint checkpoint in Checkpoints)
-        {
-            checkpoint.Draw(view, projection);
-        }
+        //foreach (Checkpoint checkpoint in Checkpoints)
+        //{
+        //    checkpoint.Draw(view, projection);
+        //}
     }
 
     abstract protected void LoadTrack();
